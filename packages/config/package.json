@@ -1,0 +1,22 @@
+{
+  "name": "@preflight/config",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Curve construction, validation and quote-asset description for Meteora DBC.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --build"
+  },
+  "dependencies": {
+    "@meteora-ag/dynamic-bonding-curve-sdk": "^1.5.12",
+    "@solana/web3.js": "^1.99.0",
+    "bn.js": "^5.2.2",
+    "@preflight/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.2.0"
+  }
+}

@@ -1,0 +1,831 @@
+{
+  "name": "fee-decay",
+  "description": "An 8% opening fee decaying exponentially to 1% over eight periods, with the schedule counted in slots rather than seconds. Gaps between trades cross several periods, so the fee genuinely falls as the launch runs.",
+  "programId": "dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN",
+  "programSha256": "4c26a8a5da99f8ce932fa0300c46675b527090021fbb74214c9486bedda9f23b",
+  "seed": "preflight/fee-decay",
+  "quoteDecimals": 9,
+  "configParams": {
+    "poolFees": {
+      "baseFee": {
+        "cliffFeeNumerator": "80000000",
+        "firstFactor": 8,
+        "secondFactor": "30",
+        "thirdFactor": "2288",
+        "baseFeeMode": 1
+      },
+      "dynamicFee": null
+    },
+    "collectFeeMode": 0,
+    "migrationOption": 1,
+    "activationType": 0,
+    "tokenType": 0,
+    "tokenDecimal": 6,
+    "partnerLiquidityPercentage": 0,
+    "partnerPermanentLockedLiquidityPercentage": 100,
+    "creatorLiquidityPercentage": 0,
+    "creatorPermanentLockedLiquidityPercentage": 0,
+    "migrationQuoteThreshold": "50000000000",
+    "sqrtStartPrice": "72917159700786074",
+    "lockedVesting": {
+      "amountPerPeriod": "0",
+      "cliffDurationFromMigrationTime": "0",
+      "frequency": "0",
+      "numberOfPeriod": "0",
+      "cliffUnlockAmount": "0"
+    },
+    "migrationFeeOption": 2,
+    "tokenSupply": {
+      "preMigrationTokenSupply": "1000000000000000",
+      "postMigrationTokenSupply": "1000000000000000"
+    },
+    "creatorTradingFeePercentage": 0,
+    "tokenUpdateAuthority": 0,
+    "migrationFee": {
+      "feePercentage": 0,
+      "creatorFeePercentage": 0
+    },
+    "migratedPoolFee": {
+      "collectFeeMode": 0,
+      "dynamicFee": 0,
+      "poolFeeBps": 0
+    },
+    "poolCreationFee": "0",
+    "partnerLiquidityVestingInfo": {
+      "vestingPercentage": 0,
+      "bpsPerPeriod": 0,
+      "numberOfPeriods": 0,
+      "cliffDurationFromMigrationTime": 0,
+      "frequency": 0
+    },
+    "creatorLiquidityVestingInfo": {
+      "vestingPercentage": 0,
+      "bpsPerPeriod": 0,
+      "numberOfPeriods": 0,
+      "cliffDurationFromMigrationTime": 0,
+      "frequency": 0
+    },
+    "migratedPoolBaseFeeMode": 0,
+    "migratedPoolMarketCapFeeSchedulerParams": {
+      "numberOfPeriod": 0,
+      "sqrtPriceStepBps": 0,
+      "schedulerExpirationDuration": 0,
+      "reductionFactor": "0"
+    },
+    "enableFirstSwapWithMinFee": false,
+    "compoundingFeeBps": 0,
+    "padding": [],
+    "curve": [
+      {
+        "sqrtPrice": "291668633435675794",
+        "liquidity": "77778302726621859411782592031204"
+      },
+      {
+        "sqrtPrice": "79226673521066979257578248091",
+        "liquidity": "3435179538986703074007681"
+      }
+    ]
+  },
+  "configAccount": {
+    "quoteMint": "ExUReDJr9vofNDZ1s9asPvasw72iLHQfxMcZKotQ2LuZ",
+    "feeClaimer": "6KMBDdudbCR9WxETQXdeCL4FPh7rxajiVa8zmMVt3vN",
+    "leftoverReceiver": "6KMBDdudbCR9WxETQXdeCL4FPh7rxajiVa8zmMVt3vN",
+    "poolFees": {
+      "baseFee": {
+        "cliffFeeNumerator": "80000000",
+        "secondFactor": "30",
+        "thirdFactor": "2288",
+        "firstFactor": 8,
+        "baseFeeMode": 1,
+        "padding0": [0, 0, 0, 0, 0]
+      },
+      "dynamicFee": {
+        "initialized": 0,
+        "padding": [0, 0, 0, 0, 0, 0, 0],
+        "maxVolatilityAccumulator": 0,
+        "variableFeeControl": 0,
+        "binStep": 0,
+        "filterPeriod": 0,
+        "decayPeriod": 0,
+        "reductionFactor": 0,
+        "padding2": [0, 0, 0, 0, 0, 0, 0, 0],
+        "binStepU128": "0"
+      }
+    },
+    "partnerLiquidityVestingInfo": {
+      "isInitialized": 0,
+      "vestingPercentage": 0,
+      "padding": [0, 0],
+      "bpsPerPeriod": 0,
+      "numberOfPeriods": 0,
+      "frequency": 0,
+      "cliffDurationFromMigrationTime": 0
+    },
+    "creatorLiquidityVestingInfo": {
+      "isInitialized": 0,
+      "vestingPercentage": 0,
+      "padding": [0, 0],
+      "bpsPerPeriod": 0,
+      "numberOfPeriods": 0,
+      "frequency": 0,
+      "cliffDurationFromMigrationTime": 0
+    },
+    "padding0": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "padding1": 0,
+    "collectFeeMode": 0,
+    "migrationOption": 1,
+    "activationType": 0,
+    "tokenDecimal": 6,
+    "version": 0,
+    "tokenType": 0,
+    "quoteTokenFlag": 0,
+    "partnerPermanentLockedLiquidityPercentage": 100,
+    "partnerLiquidityPercentage": 0,
+    "creatorPermanentLockedLiquidityPercentage": 0,
+    "creatorLiquidityPercentage": 0,
+    "migrationFeeOption": 2,
+    "fixedTokenSupplyFlag": 1,
+    "creatorTradingFeePercentage": 0,
+    "tokenUpdateAuthority": 0,
+    "migrationFeePercentage": 0,
+    "creatorMigrationFeePercentage": 0,
+    "padding2": [0, 0, 0, 0, 0, 0, 0],
+    "swapBaseAmount": "799999985277901",
+    "migrationQuoteThreshold": "50000000000",
+    "migrationBaseThreshold": "200000002944420",
+    "migrationSqrtPrice": "291668633435675794",
+    "lockedVestingConfig": {
+      "amountPerPeriod": "0",
+      "cliffDurationFromMigrationTime": "0",
+      "frequency": "0",
+      "numberOfPeriod": "0",
+      "cliffUnlockAmount": "0",
+      "padding": "0"
+    },
+    "preMigrationTokenSupply": "1000000000000000",
+    "postMigrationTokenSupply": "1000000000000000",
+    "migratedCollectFeeMode": 0,
+    "migratedDynamicFee": 0,
+    "migratedPoolFeeBps": 0,
+    "migratedPoolBaseFeeMode": 0,
+    "enableFirstSwapWithMinFee": 0,
+    "migratedCompoundingFeeBps": 0,
+    "poolCreationFee": "0",
+    "migratedPoolBaseFeeBytes": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "sqrtStartPrice": "72917159700786074",
+    "curve": [
+      {
+        "sqrtPrice": "291668633435675794",
+        "liquidity": "77778302726621859411782592031204"
+      },
+      {
+        "sqrtPrice": "79226673521066979257578248091",
+        "liquidity": "3435179538986703074007681"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      },
+      {
+        "sqrtPrice": "0",
+        "liquidity": "0"
+      }
+    ]
+  },
+  "initialPoolState": {
+    "poolState": {
+      "volatilityTracker": {
+        "lastUpdateTimestamp": "0",
+        "padding": [0, 0, 0, 0, 0, 0, 0, 0],
+        "sqrtPriceReference": "0",
+        "volatilityAccumulator": "0",
+        "volatilityReference": "0"
+      },
+      "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+      "creator": "6KMBDdudbCR9WxETQXdeCL4FPh7rxajiVa8zmMVt3vN",
+      "baseMint": "J5nMcg89ihKRuaMdMsft7mgt1BRBaqfubAVogatEJ7hb",
+      "baseVault": "8drV48Uv3u45ZjMQrS5fqhfUMcr5gDf9AVVHBK8LmqWS",
+      "quoteVault": "3HNq4ZhqNkCfQz7GvRKhNe9GPbfG9FnbmmkjJKCuSk1k",
+      "baseReserve": "1000000000000000",
+      "quoteReserve": "0",
+      "protocolBaseFee": "0",
+      "protocolQuoteFee": "0",
+      "partnerBaseFee": "0",
+      "partnerQuoteFee": "0",
+      "sqrtPrice": "72917159700786074",
+      "activationPoint": "300000000",
+      "poolType": 0,
+      "isMigrated": 0,
+      "isPartnerWithdrawSurplus": 0,
+      "isProtocolWithdrawSurplus": 0,
+      "migrationProgress": 0,
+      "isWithdrawLeftover": 0,
+      "isCreatorWithdrawSurplus": 0,
+      "migrationFeeWithdrawStatus": 0,
+      "metrics": {
+        "totalProtocolBaseFee": "0",
+        "totalProtocolQuoteFee": "0",
+        "totalTradingBaseFee": "0",
+        "totalTradingQuoteFee": "0"
+      },
+      "finishCurveTimestamp": "0",
+      "creatorBaseFee": "0",
+      "creatorQuoteFee": "0",
+      "legacyCreationFeeBits": 0,
+      "creationFeeBits": 0,
+      "hasSwap": 0,
+      "padding0": [0, 0, 0, 0, 0],
+      "protocolLiquidityMigrationFeeBps": 20,
+      "padding1": [0, 0, 0, 0, 0, 0],
+      "protocolMigrationBaseFeeAmount": "0",
+      "protocolMigrationQuoteFeeAmount": "0",
+      "padding2": ["0", "0", "0"]
+    }
+  },
+  "swaps": [
+    {
+      "step": 0,
+      "kind": "exactIn",
+      "swapBaseForQuote": false,
+      "amountIn": "2000000000",
+      "clock": {
+        "slot": "300000000",
+        "unixTimestamp": "1767225600"
+      },
+      "event": {
+        "pool": "Ay7NwTy2QqCZh89QWEkc4qVG322xGkSeQPJt62FK1M6N",
+        "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+        "tradeDirection": 1,
+        "hasReferral": false,
+        "swapParameters": {
+          "amount0": "2000000000",
+          "amount1": "0",
+          "swapMode": 0
+        },
+        "swapResult": {
+          "includedFeeInputAmount": "2000000000",
+          "excludedFeeInputAmount": "1840000000",
+          "amountLeft": "0",
+          "outputAmount": "106051869554299",
+          "nextSqrtPrice": "80967213934230015",
+          "tradingFee": "128000000",
+          "protocolFee": "32000000",
+          "referralFee": "0"
+        },
+        "quoteReserveAmount": "1840000000",
+        "migrationThreshold": "50000000000",
+        "currentTimestamp": "1767225600"
+      },
+      "legacyEvent": {
+        "pool": "Ay7NwTy2QqCZh89QWEkc4qVG322xGkSeQPJt62FK1M6N",
+        "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+        "tradeDirection": 1,
+        "hasReferral": false,
+        "params": {
+          "amountIn": "2000000000",
+          "minimumAmountOut": "0"
+        },
+        "swapResult": {
+          "actualInputAmount": "1840000000",
+          "outputAmount": "106051869554299",
+          "nextSqrtPrice": "80967213934230015",
+          "tradingFee": "128000000",
+          "protocolFee": "32000000",
+          "referralFee": "0"
+        },
+        "amountIn": "2000000000",
+        "currentTimestamp": "1767225600"
+      },
+      "poolStateAfter": {
+        "poolState": {
+          "volatilityTracker": {
+            "lastUpdateTimestamp": "0",
+            "padding": [0, 0, 0, 0, 0, 0, 0, 0],
+            "sqrtPriceReference": "0",
+            "volatilityAccumulator": "0",
+            "volatilityReference": "0"
+          },
+          "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+          "creator": "6KMBDdudbCR9WxETQXdeCL4FPh7rxajiVa8zmMVt3vN",
+          "baseMint": "J5nMcg89ihKRuaMdMsft7mgt1BRBaqfubAVogatEJ7hb",
+          "baseVault": "8drV48Uv3u45ZjMQrS5fqhfUMcr5gDf9AVVHBK8LmqWS",
+          "quoteVault": "3HNq4ZhqNkCfQz7GvRKhNe9GPbfG9FnbmmkjJKCuSk1k",
+          "baseReserve": "893948130445701",
+          "quoteReserve": "1840000000",
+          "protocolBaseFee": "0",
+          "protocolQuoteFee": "32000000",
+          "partnerBaseFee": "0",
+          "partnerQuoteFee": "128000000",
+          "sqrtPrice": "80967213934230015",
+          "activationPoint": "300000000",
+          "poolType": 0,
+          "isMigrated": 0,
+          "isPartnerWithdrawSurplus": 0,
+          "isProtocolWithdrawSurplus": 0,
+          "migrationProgress": 0,
+          "isWithdrawLeftover": 0,
+          "isCreatorWithdrawSurplus": 0,
+          "migrationFeeWithdrawStatus": 0,
+          "metrics": {
+            "totalProtocolBaseFee": "0",
+            "totalProtocolQuoteFee": "32000000",
+            "totalTradingBaseFee": "0",
+            "totalTradingQuoteFee": "128000000"
+          },
+          "finishCurveTimestamp": "0",
+          "creatorBaseFee": "0",
+          "creatorQuoteFee": "0",
+          "legacyCreationFeeBits": 0,
+          "creationFeeBits": 0,
+          "hasSwap": 1,
+          "padding0": [0, 0, 0, 0, 0],
+          "protocolLiquidityMigrationFeeBps": 20,
+          "padding1": [0, 0, 0, 0, 0, 0],
+          "protocolMigrationBaseFeeAmount": "0",
+          "protocolMigrationQuoteFeeAmount": "0",
+          "padding2": ["0", "0", "0"]
+        }
+      }
+    },
+    {
+      "step": 1,
+      "kind": "exactIn",
+      "swapBaseForQuote": false,
+      "amountIn": "5000000000",
+      "clock": {
+        "slot": "300000100",
+        "unixTimestamp": "1767225640"
+      },
+      "event": {
+        "pool": "Ay7NwTy2QqCZh89QWEkc4qVG322xGkSeQPJt62FK1M6N",
+        "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+        "tradeDirection": 1,
+        "hasReferral": false,
+        "swapParameters": {
+          "amount0": "5000000000",
+          "amount1": "0",
+          "swapMode": 0
+        },
+        "swapResult": {
+          "includedFeeInputAmount": "5000000000",
+          "excludedFeeInputAmount": "4816531695",
+          "amountLeft": "0",
+          "outputAmount": "198378944477232",
+          "nextSqrtPrice": "102039682065671142",
+          "tradingFee": "146774644",
+          "protocolFee": "36693661",
+          "referralFee": "0"
+        },
+        "quoteReserveAmount": "6656531695",
+        "migrationThreshold": "50000000000",
+        "currentTimestamp": "1767225640"
+      },
+      "legacyEvent": {
+        "pool": "Ay7NwTy2QqCZh89QWEkc4qVG322xGkSeQPJt62FK1M6N",
+        "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+        "tradeDirection": 1,
+        "hasReferral": false,
+        "params": {
+          "amountIn": "5000000000",
+          "minimumAmountOut": "0"
+        },
+        "swapResult": {
+          "actualInputAmount": "4816531695",
+          "outputAmount": "198378944477232",
+          "nextSqrtPrice": "102039682065671142",
+          "tradingFee": "146774644",
+          "protocolFee": "36693661",
+          "referralFee": "0"
+        },
+        "amountIn": "5000000000",
+        "currentTimestamp": "1767225640"
+      },
+      "poolStateAfter": {
+        "poolState": {
+          "volatilityTracker": {
+            "lastUpdateTimestamp": "0",
+            "padding": [0, 0, 0, 0, 0, 0, 0, 0],
+            "sqrtPriceReference": "0",
+            "volatilityAccumulator": "0",
+            "volatilityReference": "0"
+          },
+          "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+          "creator": "6KMBDdudbCR9WxETQXdeCL4FPh7rxajiVa8zmMVt3vN",
+          "baseMint": "J5nMcg89ihKRuaMdMsft7mgt1BRBaqfubAVogatEJ7hb",
+          "baseVault": "8drV48Uv3u45ZjMQrS5fqhfUMcr5gDf9AVVHBK8LmqWS",
+          "quoteVault": "3HNq4ZhqNkCfQz7GvRKhNe9GPbfG9FnbmmkjJKCuSk1k",
+          "baseReserve": "695569185968469",
+          "quoteReserve": "6656531695",
+          "protocolBaseFee": "0",
+          "protocolQuoteFee": "68693661",
+          "partnerBaseFee": "0",
+          "partnerQuoteFee": "274774644",
+          "sqrtPrice": "102039682065671142",
+          "activationPoint": "300000000",
+          "poolType": 0,
+          "isMigrated": 0,
+          "isPartnerWithdrawSurplus": 0,
+          "isProtocolWithdrawSurplus": 0,
+          "migrationProgress": 0,
+          "isWithdrawLeftover": 0,
+          "isCreatorWithdrawSurplus": 0,
+          "migrationFeeWithdrawStatus": 0,
+          "metrics": {
+            "totalProtocolBaseFee": "0",
+            "totalProtocolQuoteFee": "68693661",
+            "totalTradingBaseFee": "0",
+            "totalTradingQuoteFee": "274774644"
+          },
+          "finishCurveTimestamp": "0",
+          "creatorBaseFee": "0",
+          "creatorQuoteFee": "0",
+          "legacyCreationFeeBits": 0,
+          "creationFeeBits": 0,
+          "hasSwap": 1,
+          "padding0": [0, 0, 0, 0, 0],
+          "protocolLiquidityMigrationFeeBps": 20,
+          "padding1": [0, 0, 0, 0, 0, 0],
+          "protocolMigrationBaseFeeAmount": "0",
+          "protocolMigrationQuoteFeeAmount": "0",
+          "padding2": ["0", "0", "0"]
+        }
+      }
+    },
+    {
+      "step": 2,
+      "kind": "exactIn",
+      "swapBaseForQuote": false,
+      "amountIn": "10000000000",
+      "clock": {
+        "slot": "300000200",
+        "unixTimestamp": "1767225680"
+      },
+      "event": {
+        "pool": "Ay7NwTy2QqCZh89QWEkc4qVG322xGkSeQPJt62FK1M6N",
+        "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+        "tradeDirection": 1,
+        "hasReferral": false,
+        "swapParameters": {
+          "amount0": "10000000000",
+          "amount1": "0",
+          "swapMode": 0
+        },
+        "swapResult": {
+          "includedFeeInputAmount": "10000000000",
+          "excludedFeeInputAmount": "9831696910",
+          "amountLeft": "0",
+          "outputAmount": "226032131742320",
+          "nextSqrtPrice": "145053645833216370",
+          "tradingFee": "134642472",
+          "protocolFee": "33660618",
+          "referralFee": "0"
+        },
+        "quoteReserveAmount": "16488228605",
+        "migrationThreshold": "50000000000",
+        "currentTimestamp": "1767225680"
+      },
+      "legacyEvent": {
+        "pool": "Ay7NwTy2QqCZh89QWEkc4qVG322xGkSeQPJt62FK1M6N",
+        "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+        "tradeDirection": 1,
+        "hasReferral": false,
+        "params": {
+          "amountIn": "10000000000",
+          "minimumAmountOut": "0"
+        },
+        "swapResult": {
+          "actualInputAmount": "9831696910",
+          "outputAmount": "226032131742320",
+          "nextSqrtPrice": "145053645833216370",
+          "tradingFee": "134642472",
+          "protocolFee": "33660618",
+          "referralFee": "0"
+        },
+        "amountIn": "10000000000",
+        "currentTimestamp": "1767225680"
+      },
+      "poolStateAfter": {
+        "poolState": {
+          "volatilityTracker": {
+            "lastUpdateTimestamp": "0",
+            "padding": [0, 0, 0, 0, 0, 0, 0, 0],
+            "sqrtPriceReference": "0",
+            "volatilityAccumulator": "0",
+            "volatilityReference": "0"
+          },
+          "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+          "creator": "6KMBDdudbCR9WxETQXdeCL4FPh7rxajiVa8zmMVt3vN",
+          "baseMint": "J5nMcg89ihKRuaMdMsft7mgt1BRBaqfubAVogatEJ7hb",
+          "baseVault": "8drV48Uv3u45ZjMQrS5fqhfUMcr5gDf9AVVHBK8LmqWS",
+          "quoteVault": "3HNq4ZhqNkCfQz7GvRKhNe9GPbfG9FnbmmkjJKCuSk1k",
+          "baseReserve": "469537054226149",
+          "quoteReserve": "16488228605",
+          "protocolBaseFee": "0",
+          "protocolQuoteFee": "102354279",
+          "partnerBaseFee": "0",
+          "partnerQuoteFee": "409417116",
+          "sqrtPrice": "145053645833216370",
+          "activationPoint": "300000000",
+          "poolType": 0,
+          "isMigrated": 0,
+          "isPartnerWithdrawSurplus": 0,
+          "isProtocolWithdrawSurplus": 0,
+          "migrationProgress": 0,
+          "isWithdrawLeftover": 0,
+          "isCreatorWithdrawSurplus": 0,
+          "migrationFeeWithdrawStatus": 0,
+          "metrics": {
+            "totalProtocolBaseFee": "0",
+            "totalProtocolQuoteFee": "102354279",
+            "totalTradingBaseFee": "0",
+            "totalTradingQuoteFee": "409417116"
+          },
+          "finishCurveTimestamp": "0",
+          "creatorBaseFee": "0",
+          "creatorQuoteFee": "0",
+          "legacyCreationFeeBits": 0,
+          "creationFeeBits": 0,
+          "hasSwap": 1,
+          "padding0": [0, 0, 0, 0, 0],
+          "protocolLiquidityMigrationFeeBps": 20,
+          "padding1": [0, 0, 0, 0, 0, 0],
+          "protocolMigrationBaseFeeAmount": "0",
+          "protocolMigrationQuoteFeeAmount": "0",
+          "padding2": ["0", "0", "0"]
+        }
+      }
+    },
+    {
+      "step": 3,
+      "kind": "exactIn",
+      "swapBaseForQuote": false,
+      "amountIn": "18000000000",
+      "clock": {
+        "slot": "300000350",
+        "unixTimestamp": "1767225740"
+      },
+      "event": {
+        "pool": "Ay7NwTy2QqCZh89QWEkc4qVG322xGkSeQPJt62FK1M6N",
+        "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+        "tradeDirection": 1,
+        "hasReferral": false,
+        "swapParameters": {
+          "amount0": "18000000000",
+          "amount1": "0",
+          "swapMode": 0
+        },
+        "swapResult": {
+          "includedFeeInputAmount": "18000000000",
+          "excludedFeeInputAmount": "17819823294",
+          "amountLeft": "0",
+          "outputAmount": "187446944581647",
+          "nextSqrtPrice": "223015897978372710",
+          "tradingFee": "144141365",
+          "protocolFee": "36035341",
+          "referralFee": "0"
+        },
+        "quoteReserveAmount": "34308051899",
+        "migrationThreshold": "50000000000",
+        "currentTimestamp": "1767225740"
+      },
+      "legacyEvent": {
+        "pool": "Ay7NwTy2QqCZh89QWEkc4qVG322xGkSeQPJt62FK1M6N",
+        "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+        "tradeDirection": 1,
+        "hasReferral": false,
+        "params": {
+          "amountIn": "18000000000",
+          "minimumAmountOut": "0"
+        },
+        "swapResult": {
+          "actualInputAmount": "17819823294",
+          "outputAmount": "187446944581647",
+          "nextSqrtPrice": "223015897978372710",
+          "tradingFee": "144141365",
+          "protocolFee": "36035341",
+          "referralFee": "0"
+        },
+        "amountIn": "18000000000",
+        "currentTimestamp": "1767225740"
+      },
+      "poolStateAfter": {
+        "poolState": {
+          "volatilityTracker": {
+            "lastUpdateTimestamp": "0",
+            "padding": [0, 0, 0, 0, 0, 0, 0, 0],
+            "sqrtPriceReference": "0",
+            "volatilityAccumulator": "0",
+            "volatilityReference": "0"
+          },
+          "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+          "creator": "6KMBDdudbCR9WxETQXdeCL4FPh7rxajiVa8zmMVt3vN",
+          "baseMint": "J5nMcg89ihKRuaMdMsft7mgt1BRBaqfubAVogatEJ7hb",
+          "baseVault": "8drV48Uv3u45ZjMQrS5fqhfUMcr5gDf9AVVHBK8LmqWS",
+          "quoteVault": "3HNq4ZhqNkCfQz7GvRKhNe9GPbfG9FnbmmkjJKCuSk1k",
+          "baseReserve": "282090109644502",
+          "quoteReserve": "34308051899",
+          "protocolBaseFee": "0",
+          "protocolQuoteFee": "138389620",
+          "partnerBaseFee": "0",
+          "partnerQuoteFee": "553558481",
+          "sqrtPrice": "223015897978372710",
+          "activationPoint": "300000000",
+          "poolType": 0,
+          "isMigrated": 0,
+          "isPartnerWithdrawSurplus": 0,
+          "isProtocolWithdrawSurplus": 0,
+          "migrationProgress": 0,
+          "isWithdrawLeftover": 0,
+          "isCreatorWithdrawSurplus": 0,
+          "migrationFeeWithdrawStatus": 0,
+          "metrics": {
+            "totalProtocolBaseFee": "0",
+            "totalProtocolQuoteFee": "138389620",
+            "totalTradingBaseFee": "0",
+            "totalTradingQuoteFee": "553558481"
+          },
+          "finishCurveTimestamp": "0",
+          "creatorBaseFee": "0",
+          "creatorQuoteFee": "0",
+          "legacyCreationFeeBits": 0,
+          "creationFeeBits": 0,
+          "hasSwap": 1,
+          "padding0": [0, 0, 0, 0, 0],
+          "protocolLiquidityMigrationFeeBps": 20,
+          "padding1": [0, 0, 0, 0, 0, 0],
+          "protocolMigrationBaseFeeAmount": "0",
+          "protocolMigrationQuoteFeeAmount": "0",
+          "padding2": ["0", "0", "0"]
+        }
+      }
+    },
+    {
+      "step": 4,
+      "kind": "partialFill",
+      "swapBaseForQuote": false,
+      "amountIn": "40000000000",
+      "clock": {
+        "slot": "300000575",
+        "unixTimestamp": "1767225830"
+      },
+      "event": {
+        "pool": "Ay7NwTy2QqCZh89QWEkc4qVG322xGkSeQPJt62FK1M6N",
+        "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+        "tradeDirection": 1,
+        "hasReferral": false,
+        "swapParameters": {
+          "amount0": "40000000000",
+          "amount1": "0",
+          "swapMode": 1
+        },
+        "swapResult": {
+          "includedFeeInputAmount": "15850609806",
+          "excludedFeeInputAmount": "15691948102",
+          "amountLeft": "23907659218",
+          "outputAmount": "82090094922399",
+          "nextSqrtPrice": "291668633435675794",
+          "tradingFee": "126929364",
+          "protocolFee": "31732340",
+          "referralFee": "0"
+        },
+        "quoteReserveAmount": "50000000001",
+        "migrationThreshold": "50000000000",
+        "currentTimestamp": "1767225830"
+      },
+      "legacyEvent": {
+        "pool": "Ay7NwTy2QqCZh89QWEkc4qVG322xGkSeQPJt62FK1M6N",
+        "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+        "tradeDirection": 1,
+        "hasReferral": false,
+        "params": {
+          "amountIn": "15850609806",
+          "minimumAmountOut": "82090094922399"
+        },
+        "swapResult": {
+          "actualInputAmount": "15691948102",
+          "outputAmount": "82090094922399",
+          "nextSqrtPrice": "291668633435675794",
+          "tradingFee": "126929364",
+          "protocolFee": "31732340",
+          "referralFee": "0"
+        },
+        "amountIn": "15850609806",
+        "currentTimestamp": "1767225830"
+      },
+      "poolStateAfter": {
+        "poolState": {
+          "volatilityTracker": {
+            "lastUpdateTimestamp": "0",
+            "padding": [0, 0, 0, 0, 0, 0, 0, 0],
+            "sqrtPriceReference": "0",
+            "volatilityAccumulator": "0",
+            "volatilityReference": "0"
+          },
+          "config": "AUZQ2C7MCjPLac4B7jgmNnffJX5Z1zm52PuT1j12tqHn",
+          "creator": "6KMBDdudbCR9WxETQXdeCL4FPh7rxajiVa8zmMVt3vN",
+          "baseMint": "J5nMcg89ihKRuaMdMsft7mgt1BRBaqfubAVogatEJ7hb",
+          "baseVault": "8drV48Uv3u45ZjMQrS5fqhfUMcr5gDf9AVVHBK8LmqWS",
+          "quoteVault": "3HNq4ZhqNkCfQz7GvRKhNe9GPbfG9FnbmmkjJKCuSk1k",
+          "baseReserve": "200000014722103",
+          "quoteReserve": "50000000001",
+          "protocolBaseFee": "0",
+          "protocolQuoteFee": "170121960",
+          "partnerBaseFee": "0",
+          "partnerQuoteFee": "680487845",
+          "sqrtPrice": "291668633435675794",
+          "activationPoint": "300000000",
+          "poolType": 0,
+          "isMigrated": 0,
+          "isPartnerWithdrawSurplus": 0,
+          "isProtocolWithdrawSurplus": 0,
+          "migrationProgress": 2,
+          "isWithdrawLeftover": 0,
+          "isCreatorWithdrawSurplus": 0,
+          "migrationFeeWithdrawStatus": 0,
+          "metrics": {
+            "totalProtocolBaseFee": "0",
+            "totalProtocolQuoteFee": "170121960",
+            "totalTradingBaseFee": "0",
+            "totalTradingQuoteFee": "680487845"
+          },
+          "finishCurveTimestamp": "1767225830",
+          "creatorBaseFee": "0",
+          "creatorQuoteFee": "0",
+          "legacyCreationFeeBits": 0,
+          "creationFeeBits": 0,
+          "hasSwap": 1,
+          "padding0": [0, 0, 0, 0, 0],
+          "protocolLiquidityMigrationFeeBps": 20,
+          "padding1": [0, 0, 0, 0, 0, 0],
+          "protocolMigrationBaseFeeAmount": "0",
+          "protocolMigrationQuoteFeeAmount": "0",
+          "padding2": ["0", "0", "0"]
+        }
+      }
+    }
+  ]
+}

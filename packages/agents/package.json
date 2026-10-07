@@ -1,0 +1,17 @@
+{
+  "name": "@preflight/agents",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Seeded agent-based market simulation for Meteora DBC launches.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --build"
+  },
+  "dependencies": {
+    "@preflight/config": "workspace:*",
+    "@preflight/core": "workspace:*"
+  }
+}

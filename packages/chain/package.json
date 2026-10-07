@@ -1,0 +1,23 @@
+{
+  "name": "@preflight/chain",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Reading live Meteora DBC pools from Solana and handing them to the engine.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --build"
+  },
+  "dependencies": {
+    "@meteora-ag/dynamic-bonding-curve-sdk": "^1.5.12",
+    "@preflight/core": "workspace:*",
+    "@solana/web3.js": "^1.99.0",
+    "bn.js": "^5.2.2",
+    "bs58": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.2.0"
+  }
+}

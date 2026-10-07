@@ -1,0 +1,33 @@
+# secrets — never commit
+.env
+.env.*
+!.env.example
+*.keypair.json
+id.json
+
+# internal planning; not part of the published project
+notes/
+
+# dependencies & build output
+node_modules/
+dist/
+build/
+.turbo/
+*.tsbuildinfo
+
+# test & coverage artifacts
+coverage/
+.vitest/
+
+# note: on-chain program bytecode under packages/core/fixtures/programs/ IS committed,
+# so that tests run with zero network access. Refresh it with scripts/dump-programs.mjs.
+
+# editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Next.js build output
+.next/
+next-env.d.ts

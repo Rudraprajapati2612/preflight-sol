@@ -1,0 +1,10 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./packages/config" },
+    { "path": "./packages/agents" },
+    { "path": "./packages/metrics" },
+    { "path": "./packages/chain" }
+  ]
+}

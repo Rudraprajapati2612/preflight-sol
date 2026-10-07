@@ -1,0 +1,20 @@
+{
+  "cluster": "mainnet-beta",
+  "dumpedAt": "2026-09-21",
+  "programs": [
+    {
+      "name": "dynamic-bonding-curve",
+      "programId": "dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN",
+      "file": "dynamic-bonding-curve.so",
+      "sha256": "4c26a8a5da99f8ce932fa0300c46675b527090021fbb74214c9486bedda9f23b",
+      "why": "The program under test. All correctness claims are differential against this bytecode."
+    },
+    {
+      "name": "mpl-token-metadata",
+      "programId": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s",
+      "file": "mpl-token-metadata.so",
+      "sha256": "31f0a627dba051a938de650464e55cc5397a4be0fd496929c1f9cf02fe5e9011",
+      "why": "initialize_virtual_pool_with_spl_token CPIs into it to create token metadata, so pool creation fails without it."
+    }
+  ]
+}

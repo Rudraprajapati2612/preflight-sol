@@ -1,0 +1,14 @@
+packages:
+  - 'packages/*'
+  - 'apps/*'
+
+# esbuild is vitest's bundler; its install script fetches the platform binary.
+# bigint-buffer is built because its pure-JS fallback prints a warning on every
+# import, and recurring noise in `pnpm verify` output is how a real warning gets
+# missed. bufferutil and utf-8-validate are websocket accelerations we never hit
+# from tests, so those stay declined.
+allowBuilds:
+  esbuild: true
+  bigint-buffer: true
+  bufferutil: false
+  utf-8-validate: false

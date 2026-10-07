@@ -1,0 +1,7 @@
+node_modules/
+dist/
+coverage/
+notes/
+pnpm-lock.yaml
+.next/
+apps/*/.next/

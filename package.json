@@ -1,0 +1,47 @@
+{
+  "name": "preflight",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Simulation and mechanism-design tool for Meteora Dynamic Bonding Curves",
+  "license": "MIT",
+  "author": "Pratik Kale",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pratikkale26/preflight.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@11.21.0",
+  "scripts": {
+    "dev": "pnpm --filter @preflight/web dev",
+    "build": "pnpm --filter @preflight/web build",
+    "typecheck": "tsc --build --force && tsc -p packages/core/tsconfig.test.json && tsc -p packages/config/tsconfig.test.json && tsc -p packages/agents/tsconfig.test.json && tsc -p packages/metrics/tsconfig.test.json && tsc -p packages/chain/tsconfig.test.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage.enabled --coverage.provider=v8 --coverage.include='packages/*/src/**' --coverage.reporter=text",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "programs:check": "node scripts/dump-programs.mjs --check",
+    "programs:dump": "node scripts/dump-programs.mjs",
+    "verify": "pnpm typecheck && pnpm format:check && pnpm programs:check && pnpm test",
+    "deploy:devnet": "tsx scripts/deploy-devnet.mjs",
+    "replay": "tsx scripts/replay.mjs",
+    "replay:record": "tsx scripts/replay.mjs --write"
+  },
+  "devDependencies": {
+    "@preflight/chain": "workspace:*",
+    "@preflight/config": "workspace:*",
+    "@solana/web3.js": "^1.99.0",
+    "@vitest/coverage-v8": "^3.2.7",
+    "prettier": "^3.6.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
+}

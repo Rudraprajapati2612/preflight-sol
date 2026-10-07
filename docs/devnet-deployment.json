@@ -1,0 +1,18 @@
+{
+  "cluster": "devnet",
+  "deployedAt": "2026-09-22T04:56:53.320Z",
+  "payer": "CnKHYoUJ1gn72tgB7E7kAJiMxwXNM2kmnVhcg2TVWHXk",
+  "config": "EhUKyVREfmSVcU4Wrkv3RfxFDqbG6Vw6t3fRUsHqYASv",
+  "pool": "FB7rqbpV9Htaf31DJuzuRhnjKfhKEqJFnT5zHVzpMHjF",
+  "baseMint": "CVyLCdJvkEphyMret87Ej9m4GPXkpzYfWz15rJ52YNfs",
+  "signatures": {
+    "createConfig": "3Xd5dTu8L8qSBU9rgQCa97bC6SRjQ15GdU4v29TPx2LvvyVqDJCKryqPbf3Nute92cb1EM9qRCxFvi3Pf4Wbq8Gf",
+    "createPool": "36CvBip2fgfuwZUukwkovJs463vfAfoL88cfF2BHM6XeGNvpQwr5h2w8bRR6pivTkux88Rwk9kwraxsMkgbPNmS8"
+  },
+  "predicted": {
+    "initialPrice": 1.5625001818978395e-9,
+    "migrationPrice": 2.5e-8,
+    "migrationSqrtPrice": "92233720368547758",
+    "migrationQuoteThreshold": 5
+  }
+}

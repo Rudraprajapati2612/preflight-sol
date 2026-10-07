@@ -1,0 +1,27 @@
+{
+  "name": "@preflight/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@preflight/agents": "workspace:*",
+    "@preflight/config": "workspace:*",
+    "@preflight/core": "workspace:*",
+    "@preflight/metrics": "workspace:*",
+    "next": "^15.5.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "@preflight/chain": "workspace:*",
+    "@solana/web3.js": "^1.99.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7"
+  }
+}

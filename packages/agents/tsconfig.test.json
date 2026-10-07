@@ -1,0 +1,13 @@
+{
+  // Tests live outside src/ so they are not part of the published build, but
+  // they still have to be type-checked: an untyped test suite is where type
+  // errors go to hide. This project checks them without emitting anything.
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": false,
+    "noEmit": true,
+    "declaration": false,
+    "declarationMap": false
+  },
+  "include": ["test/**/*.ts", "src/**/*.ts"]
+}
