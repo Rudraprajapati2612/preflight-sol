@@ -25,7 +25,7 @@ on-chain behaviour, and only then deploy.
 >
 > **What runs today:** the engine and its oracle — Meteora's deployed program executing
 > in-process — the agent simulation, the metrics, and the web workstation. Five recorded launches
-> replay bit-exactly on every test run, and 94 real mainnet swaps replay with every field
+> replay bit-exactly on every test run, and 8 real mainnet swaps replay with every field
 > reproduced. **What does not exist yet:** any path that signs a transaction from the browser, the
 > deprecated rate-limiter fee mode, and post-graduation surplus accounting.
 
@@ -63,7 +63,7 @@ make that testable rather than assertable:
   replaying a real launch and diffing every recorded field turns published history into a
   correctness test. Launches executed on mainnet by people with no connection to this project
   replay with every field reproduced exactly, including the running reserve Preflight tracks
-  itself: **94 swaps, 846 field comparisons, no divergences** — see
+  itself: **8 swaps, 72 field comparisons, no divergences** — see
   [`docs/VALIDATION.md`](docs/VALIDATION.md), which separates what is Preflight's from what is
   Meteora's rather than adding them together.
 - **Live pools, read from the chain.** A running launch can be loaded from mainnet and simulated

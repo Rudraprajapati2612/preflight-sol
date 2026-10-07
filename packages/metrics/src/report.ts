@@ -36,6 +36,8 @@ export interface LaunchReport {
   readonly sells: number
 
   readonly openingPrice: number
+  /** Price immediately after the first executed trade, when one occurred. */
+  readonly firstTradePrice: number
   readonly closingPrice: number
   readonly peakPrice: number
   readonly priceMultiple: number
@@ -45,10 +47,11 @@ export interface LaunchReport {
   /** Quote that reached the curve rather than being paid as a fee. */
   readonly quoteRaised: bigint
 
-  readonly feesToProtocol: bigint
-  readonly feesToPartner: bigint
-  readonly feesToCreator: bigint
-  readonly feesTotal: bigint
+  /** Fees are separated by token; adding base and quote atomics is invalid. */
+  readonly feesToProtocol: FeeAmounts
+  readonly feesToPartner: FeeAmounts
+  readonly feesToCreator: FeeAmounts
+  readonly feesTotal: FeeAmounts
 
   readonly concentration: Concentration
 
@@ -67,6 +70,12 @@ export interface LaunchReport {
   readonly worstSlippage: number
 
   readonly candles: readonly Candle[]
+}
+
+/** Fee amounts in their native token atomic units. */
+export interface FeeAmounts {
+  readonly quote: bigint
+  readonly base: bigint
 }
 
 export interface ReportInput {
@@ -89,7 +98,8 @@ export function buildReport(input: ReportInput): LaunchReport {
   const sells = steps.filter((step) => step.direction === TradeDirection.BaseToQuote)
 
   const prices = steps.map((step) => priceAt(step.poolAfter.sqrtPrice))
-  const openingPrice = steps.length > 0 ? priceAt(steps[0]!.poolAfter.sqrtPrice) : 0
+  const openingPrice = steps.length > 0 ? priceAt(steps[0]!.poolBefore.sqrtPrice) : 0
+  const firstTradePrice = steps.length > 0 ? priceAt(steps[0]!.poolAfter.sqrtPrice) : 0
   const closingPrice = priceAt(trace.finalPool.sqrtPrice)
   const peakPrice = prices.length > 0 ? Math.max(...prices) : 0
 
@@ -104,9 +114,22 @@ export function buildReport(input: ReportInput): LaunchReport {
   )
 
   const finalPool = trace.finalPool
-  const feesToProtocol = finalPool.protocolQuoteFee + finalPool.protocolBaseFee
-  const feesToPartner = finalPool.partnerQuoteFee + finalPool.partnerBaseFee
-  const feesToCreator = finalPool.creatorQuoteFee + finalPool.creatorBaseFee
+  const feesToProtocol = {
+    quote: finalPool.protocolQuoteFee,
+    base: finalPool.protocolBaseFee,
+  }
+  const feesToPartner = {
+    quote: finalPool.partnerQuoteFee,
+    base: finalPool.partnerBaseFee,
+  }
+  const feesToCreator = {
+    quote: finalPool.creatorQuoteFee,
+    base: finalPool.creatorBaseFee,
+  }
+  const feesTotal = {
+    quote: feesToProtocol.quote + feesToPartner.quote + feesToCreator.quote,
+    base: feesToProtocol.base + feesToPartner.base + feesToCreator.base,
+  }
 
   const firstTradeAt = steps[0]?.clock.unixTimestamp
   const graduationAt = trace.curveCompleted ? steps.at(-1)?.clock.unixTimestamp : undefined
@@ -121,6 +144,7 @@ export function buildReport(input: ReportInput): LaunchReport {
     buys: buys.length,
     sells: sells.length,
     openingPrice,
+    firstTradePrice,
     closingPrice,
     peakPrice,
     priceMultiple: openingPrice > 0 ? closingPrice / openingPrice : 0,
@@ -129,7 +153,7 @@ export function buildReport(input: ReportInput): LaunchReport {
     feesToProtocol,
     feesToPartner,
     feesToCreator,
-    feesTotal: feesToProtocol + feesToPartner + feesToCreator,
+    feesTotal,
     concentration: concentration(trace.agents),
     volatility: volatilityOf(prices),
     ...slippageOf(steps, priceAt, baseDecimals, quoteDecimals),
@@ -177,7 +201,7 @@ function slippageOf(
   const quoteScale = 10n ** BigInt(quoteDecimals)
 
   for (const step of steps) {
-    const spot = priceAt(step.poolAfter.sqrtPrice)
+    const spot = priceAt(step.poolBefore.sqrtPrice)
     if (spot <= 0) continue
 
     const paid = step.result.includedFeeInputAmount

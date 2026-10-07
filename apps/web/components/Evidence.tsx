@@ -11,7 +11,6 @@
 /** Straight from the table in docs/VALIDATION.md. */
 const REPLAYED = [
   { pool: '26tyUtzCPREhKTFXENakpXdZTsSvoegY34svMB7sGbrL', swaps: 8, fields: 72, divergences: 0 },
-  { pool: 'CCKDcwbrtmNPR3ELw8DeDr6z5yiij7FbEUaRE2ncAMq2', swaps: 86, fields: 774, divergences: 0 },
 ] as const
 
 const TOTAL = REPLAYED.reduce(

@@ -122,7 +122,7 @@ schedule and the volatility tracker are the program's, verified trade for trade
 against mainnet. Only turnout is assumed.
 
 The weakest part is that the crowd is not calibrated against real launches. The
-repository holds 94 replayed mainnet swaps and does not yet ask whether the
+repository holds 8 replayed mainnet swaps and does not yet ask whether the
 simulated organic buyer resembles a real one. Deriving size distributions and
 inter-arrival times from replayed launches, and offering a calibrated preset
 beside the hand-set ones, is the most valuable unbuilt thing here.

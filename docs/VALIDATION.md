@@ -41,11 +41,10 @@ agrees with the program across real traffic; the one confirms Preflight's state
 machine tracks a launch correctly from beginning to end, through sells, partial
 fills and exact-out trades, without drifting.
 
-| Pool                                           |  Swaps | Fields compared | Divergences |
-| ---------------------------------------------- | -----: | --------------: | ----------: |
-| `26tyUtzCPREhKTFXENakpXdZTsSvoegY34svMB7sGbrL` |      8 |              72 |           0 |
-| `CCKDcwbrtmNPR3ELw8DeDr6z5yiij7FbEUaRE2ncAMq2` |     86 |             774 |           0 |
-| **Total**                                      | **94** |         **846** |       **0** |
+| Pool                                           | Swaps | Fields compared | Divergences |
+| ---------------------------------------------- | ----: | --------------: | ----------: |
+| `26tyUtzCPREhKTFXENakpXdZTsSvoegY34svMB7sGbrL` |     8 |              72 |           0 |
+| **Total**                                      | **8** |          **72** |       **0** |
 
 These launches include sells as well as buys, swaps that state the amount wanted
 rather than the amount spent, and the partial fill that graduates a curve — the

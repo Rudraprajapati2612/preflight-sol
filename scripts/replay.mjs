@@ -235,4 +235,4 @@ console.log(
       : '') +
     '\n',
 )
-process.exit(totalDiv === 0 ? 0 : 1)
+process.exit(totalDiv === 0 && totalUnsupported === 0 ? 0 : 1)

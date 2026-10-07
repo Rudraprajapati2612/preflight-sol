@@ -141,6 +141,7 @@ export function runScenario(options: ScenarioOptions): Trace {
         amountIn: intent.amountIn,
         partialFill: intent.partialFill ?? false,
         result: outcome.result,
+        poolBefore: outcome.stateBefore,
         poolAfter: outcome.stateAfter,
         agentAfter: updated,
         randomPosition: proposal.randomPosition,

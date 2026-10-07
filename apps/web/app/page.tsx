@@ -140,11 +140,11 @@ export default function Landing() {
 
           <div className="proof">
             <div>
-              <div className="n">94</div>
+              <div className="n">8</div>
               <div className="l">real mainnet swaps replayed, trade for trade</div>
             </div>
             <div>
-              <div className="n">846</div>
+              <div className="n">72</div>
               <div className="l">field comparisons against what the program recorded</div>
             </div>
             <div>

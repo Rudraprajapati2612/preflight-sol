@@ -70,6 +70,8 @@ export interface TraceStep {
   readonly amountIn: bigint
   readonly partialFill: boolean
   readonly result: SwapResult
+  /** Pool state immediately before this trade executed. */
+  readonly poolBefore: PoolState
   readonly poolAfter: PoolState
   readonly agentAfter: AgentState
   /**

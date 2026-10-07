@@ -110,17 +110,25 @@ describe('a launch report', () => {
     expect(report.trades).toBe(trace.steps.length)
   })
 
-  it('reports the fees the pool actually retained', () => {
+  it('reports retained fees in their native token units', () => {
     const pool = trace.finalPool
-    expect(report.feesTotal).toBe(
-      pool.protocolQuoteFee +
-        pool.partnerQuoteFee +
-        pool.creatorQuoteFee +
-        pool.protocolBaseFee +
-        pool.partnerBaseFee +
-        pool.creatorBaseFee,
-    )
-    expect(report.feesTotal).toBeGreaterThan(0n)
+    expect(report.feesToProtocol).toEqual({
+      quote: pool.protocolQuoteFee,
+      base: pool.protocolBaseFee,
+    })
+    expect(report.feesToPartner).toEqual({
+      quote: pool.partnerQuoteFee,
+      base: pool.partnerBaseFee,
+    })
+    expect(report.feesToCreator).toEqual({
+      quote: pool.creatorQuoteFee,
+      base: pool.creatorBaseFee,
+    })
+    expect(report.feesTotal).toEqual({
+      quote: pool.protocolQuoteFee + pool.partnerQuoteFee + pool.creatorQuoteFee,
+      base: pool.protocolBaseFee + pool.partnerBaseFee + pool.creatorBaseFee,
+    })
+    expect(report.feesTotal.quote).toBeGreaterThan(0n)
   })
 
   it('reports the quote actually raised, not the quote paid', () => {
@@ -131,6 +139,13 @@ describe('a launch report', () => {
   })
 
   it('shows the price rising across the launch', () => {
+    expect(report.openingPrice).toBe(
+      priceFromSqrtPrice(trace.steps[0]!.poolBefore.sqrtPrice, 6, SOL.decimals),
+    )
+    expect(report.firstTradePrice).toBe(
+      priceFromSqrtPrice(trace.steps[0]!.poolAfter.sqrtPrice, 6, SOL.decimals),
+    )
+    expect(report.firstTradePrice).toBeGreaterThan(report.openingPrice)
     expect(report.closingPrice).toBeGreaterThan(report.openingPrice)
     expect(report.peakPrice).toBeGreaterThanOrEqual(report.closingPrice)
     expect(report.priceMultiple).toBeGreaterThan(1)
@@ -185,6 +200,25 @@ describe('a launch report', () => {
     const other = buildReport({ trace, config, baseDecimals: 9, quoteAsset: USDC })
     expect(other.averageSlippage).toBeLessThan(1)
     expect(other.worstSlippage).toBeLessThan(2)
+  })
+
+  it('measures the first trade against its pre-trade spot price', () => {
+    const first = trace.steps[0]!
+    const oneTradeReport = buildReport({
+      trace: { ...trace, steps: [first], finalPool: first.poolAfter },
+      config,
+      baseDecimals: 6,
+      quoteAsset: SOL,
+    })
+    const effective = ratio(
+      first.result.includedFeeInputAmount * 10n ** 6n,
+      first.result.outputAmount * 10n ** 9n,
+    )
+    const preTradeSpot = priceFromSqrtPrice(first.poolBefore.sqrtPrice, 6, 9)
+    const expected = Math.abs(effective - preTradeSpot) / preTradeSpot
+
+    expect(oneTradeReport.averageSlippage).toBeCloseTo(expected, 12)
+    expect(oneTradeReport.worstSlippage).toBeCloseTo(expected, 12)
   })
 
   it('is as reproducible as the trace it came from', () => {
