@@ -8,7 +8,8 @@ import { decodeConfig, decodePoolState } from '@preflight/core'
 import { type OracleFixture } from '@preflight/core/oracle'
 import { describe, expect, it } from 'vitest'
 
-import { buildReport, gini, priceFromSqrtPrice, ratio } from '../src/index.js'
+import { buildReport, concentration, gini, priceFromSqrtPrice, ratio } from '../src/index.js'
+import type { AgentState } from '@preflight/agents'
 
 const fixture = JSON.parse(
   readFileSync(
@@ -95,6 +96,23 @@ describe('gini', () => {
     expect(gini([])).toBe(0)
     expect(gini([5n])).toBe(0)
     expect(gini([0n, 0n])).toBe(0)
+  })
+})
+
+describe('concentration', () => {
+  it('reports the share held by the largest ten wallets', () => {
+    const agents: AgentState[] = Array.from({ length: 11 }, (_, index) => ({
+      id: `holder-${index}`,
+      archetype: 'organic',
+      quoteBalance: 0n,
+      baseBalance: BigInt(11 - index),
+      costBasisQuote: 0n,
+      realisedPnlQuote: 0n,
+      trades: 1,
+    }))
+
+    // Holdings are 11 through 1: the total is 66 and the top ten hold 65.
+    expect(concentration(agents).topTenShare).toBeCloseTo(65 / 66, 12)
   })
 })
 

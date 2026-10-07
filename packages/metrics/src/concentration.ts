@@ -21,6 +21,8 @@ export interface Concentration {
   readonly topHolderShare: number
   /** Share held by the largest five wallets. */
   readonly topFiveShare: number
+  /** Share held by the largest ten wallets. */
+  readonly topTenShare: number
   /** Share held by wallets that acted as snipers. */
   readonly sniperShare: number
   /**
@@ -45,6 +47,7 @@ export function concentration(agents: readonly AgentState[]): Concentration {
       holders: 0,
       topHolderShare: 0,
       topFiveShare: 0,
+      topTenShare: 0,
       sniperShare: 0,
       gini: 0,
       totalHeld: 0n,
@@ -65,6 +68,7 @@ export function concentration(agents: readonly AgentState[]): Concentration {
     holders: holdings.length,
     topHolderShare: ratio(topN(1), totalHeld),
     topFiveShare: ratio(topN(5), totalHeld),
+    topTenShare: ratio(topN(10), totalHeld),
     sniperShare: ratio(sniperHeld, totalHeld),
     gini: gini(holdings.map((holding) => holding.balance)),
     totalHeld,

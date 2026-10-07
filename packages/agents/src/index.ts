@@ -8,7 +8,10 @@
 
 export { runScenario } from './scheduler.js'
 export type { ScenarioOptions, ScenarioParticipant } from './scheduler.js'
-export { organic, sniper, whale } from './archetypes.js'
+export { runMonteCarlo } from './montecarlo.js'
+export type { MonteCarloBatch, MonteCarloOptions, MonteCarloRun } from './montecarlo.js'
+export { bundler, dumper, organic, sniper, whale } from './archetypes.js'
+export type { DumperTrigger } from './archetypes.js'
 export { applyTrade, openingPosition } from './position.js'
 export { deriveSeed, Random } from './random.js'
 export { RecordedClock, SimulatedClock } from './clock.js'
