@@ -169,6 +169,31 @@ importers:
         specifier: workspace:*
         version: link:../core
 
+  packages/tuner:
+    dependencies:
+      '@meteora-ag/dynamic-bonding-curve-sdk':
+        specifier: ^1.5.12
+        version: 1.5.12(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.3)(utf-8-validate@6.0.6)
+      '@preflight/agents':
+        specifier: workspace:*
+        version: link:../agents
+      '@preflight/config':
+        specifier: workspace:*
+        version: link:../config
+      '@preflight/core':
+        specifier: workspace:*
+        version: link:../core
+      '@preflight/metrics':
+        specifier: workspace:*
+        version: link:../metrics
+      bn.js:
+        specifier: ^5.2.2
+        version: 5.2.5
+    devDependencies:
+      '@types/bn.js':
+        specifier: ^5.2.0
+        version: 5.2.0
+
 packages:
 
   '@ampproject/remapping@2.3.0':

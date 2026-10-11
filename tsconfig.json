@@ -5,6 +5,7 @@
     { "path": "./packages/config" },
     { "path": "./packages/agents" },
     { "path": "./packages/metrics" },
+    { "path": "./packages/tuner" },
     { "path": "./packages/chain" }
   ]
 }

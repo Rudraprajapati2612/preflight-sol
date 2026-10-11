@@ -1,0 +1,24 @@
+{
+  "name": "@preflight/tuner",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Bounded, reproducible launch-configuration search for Preflight.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --build"
+  },
+  "dependencies": {
+    "@meteora-ag/dynamic-bonding-curve-sdk": "^1.5.12",
+    "@preflight/agents": "workspace:*",
+    "@preflight/config": "workspace:*",
+    "@preflight/core": "workspace:*",
+    "@preflight/metrics": "workspace:*",
+    "bn.js": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.2.0"
+  }
+}
